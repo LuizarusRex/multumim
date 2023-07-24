@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videoclip Aleatoriu</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        /* Cadranul pentru videoclip */
+        .video-cadran {
+            position: relative;
+            width: 80vmin;
+            height: 80vmin;
+            border: 1px solid #000;
+            overflow: hidden;
+        }
+
+        /* Stilizare videoclip */
+        .video-cadran video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script>
+        // Lista de link-uri către videoclipuri
+        var videoLinks = [
+            'https://drive.google.com/uc?export=download&id=1SzH8RCMNMtRuYU_V9DfNMRHRzbV5FwAw',
+            'https://drive.google.com/uc?export=download&id=1Q2v_GrwU1EqMS2xFMzMtNekmPxiGzxW1',
+            'https://drive.google.com/uc?export=download&id=1d2GXcSatsxwpKJqke52KfUw5N1wOABwm',
+            // Adaugă aici restul link-urilor către videoclipuri
+        ];
+
+        // Funcția care redirecționează către un videoclip aleatoriu
+        function redirectRandomVideo() {
+            var randomIndex = Math.floor(Math.random() * videoLinks.length);
+            var randomVideo = videoLinks[randomIndex];
+            var videoElement = document.getElementById('random-video');
+            videoElement.src = randomVideo;
+        }
+
+        // Apelăm funcția pentru a redirecționa către un videoclip aleatoriu la încărcarea paginii
+        window.onload = redirectRandomVideo;
+    </script>
+</head>
+<body>
+    <div class="video-cadran">
+        <!-- Adaugăm un id pentru eticheta video -->
+        <video id="random-video" controls>
+            <!-- Eliminăm atributul src -->
+            <!-- În cazul în care browser-ul nu suportă formatul video MP4 -->
+            Acest browser nu suportă redarea video.
+        </video>
+    </div>
+</body>
+</html>
